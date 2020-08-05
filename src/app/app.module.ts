@@ -43,6 +43,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FillParentDirective } from './fill-parent.directive';
 import { DropzoneDirective } from './dropzone.directive';
 import { MultipleUploadComponent } from './multiple-upload/multiple-upload.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { MultipleUploadComponent } from './multiple-upload/multiple-upload.compo
     FillParentDirective,
     DropzoneDirective,
     MultipleUploadComponent,
+    UploadTaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,22 @@
-<p>multiple-upload works!</p>
+<div class="dropzone" 
+     dropzone
+     (hovered)="toggleHover($event)"
+     (dropped)="onDrop($event)"
+     [class.hovering]="isHovering">
+
+
+     <p>Drag and Drop a File</p>
+
+     <button>
+      <input type="file"
+      multiple="multiple"
+      (change)="selectMultiplePictures($event.target.files)"
+      >
+     </button>
+</div>
+
+<h3>Uploads</h3>
+
+<div *ngFor="let file of files">
+  <app-upload-task [file]="file"></app-upload-task>
+</div>
