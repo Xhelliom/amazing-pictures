@@ -41,6 +41,8 @@ import { PictureViewComponent } from './browser/picture-view/picture-view.compon
 import { PictureDeleteComponent } from './browser/picture-view/picture-delete/picture-delete.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FillParentDirective } from './fill-parent.directive';
+import { DropzoneDirective } from './dropzone.directive';
+import { MultipleUploadComponent } from './multiple-upload/multiple-upload.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { FillParentDirective } from './fill-parent.directive';
     PictureDeleteComponent,
     FillParentDirective,
     FillParentDirective,
+    DropzoneDirective,
+    MultipleUploadComponent,
   ],
   imports: [
     BrowserModule,
