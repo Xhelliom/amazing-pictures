@@ -1,6 +1,10 @@
 <h2 mat-dialog-title>Sign in to Amazing Pictures</h2>
 <mat-dialog-content>
   <form id='sing-in-form' [formGroup]="singInForm" (ngSubmit)="signIn()">
+    <button (click)="googleSignIn()">
+      <i class="fa fa-google"></i> Connect Google
+    </button>
+    
     <mat-form-field hideRequiredMarker>
       <input size="1" matInput aria-label="Email" type="email" formControlName="email" placeholder="Email" required>
       <mat-icon matSuffix>email</mat-icon>

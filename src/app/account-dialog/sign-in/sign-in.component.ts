@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { AccountService } from '../../account.service';
 import { Validators } from '@angular/forms';
 import { AccountDialogComponent } from '../account-dialog.component';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-sing-in',
@@ -24,7 +25,10 @@ export class SignInComponent implements OnInit {
 
   @Input() readonly email?: string;
 
-  constructor(private dialogRef: MatDialogRef<AccountDialogComponent>, private accountService: AccountService) {
+  constructor(private dialogRef: MatDialogRef<AccountDialogComponent>, 
+              private accountService: AccountService,
+              public auth: AuthService
+              ) {
 
   }
 
@@ -47,4 +51,9 @@ export class SignInComponent implements OnInit {
       await this.accountService.signIn(this.emailForm.value, this.singInForm.controls.password.value);
     }
   }
+  async googleSignIn(): Promise<void> {
+    this.auth.googleSignin();
+    this.dialogRef.close();
+  }
+  
 }
