@@ -12,9 +12,9 @@
       <button *ngIf="accountService.user" mat-icon-button id="upload-picture" (click)="selectPicture()">
         <mat-icon>add_photo_alternate</mat-icon>
       </button>
-      <button *ngIf="accountService.user" mat-icon-button id="multiple-upload" (click)="selectPicture()">
+      <a *ngIf="accountService.user" class="button" mat-icon-button id="upload-mutiple-picture" routerLink="multiple-upload">
         <mat-icon>playlist_add</mat-icon>
-      </button>
+      </a>
       <input #pictureInput id="picture-input" type="file" aria-label="Upload a profile picture"
              accept="image/png, image/jpeg" (change)="uploadPicture($event)">
       <button *ngIf="accountService.user !== undefined && !accountService.user" mat-stroked-button color="primary"

@@ -26,5 +26,8 @@
 <button *ngIf="accountService.user" mat-fab id="upload-picture" (click)="selectPicture()">
   <mat-icon>add_photo_alternate</mat-icon>
 </button>
+<a *ngIf="accountService.user" mat-fab id="upload-mutiple-picture" class="button" routerLink="multiple-upload">
+  <mat-icon>playlist_add</mat-icon>
+</a>
 <input #pictureInput id="picture-input" type="file" aria-label="Upload a profile picture"
        accept="image/png, image/jpeg" (change)="uploadPicture($event)">

@@ -73,6 +73,14 @@ mat-progress-bar {
   z-index: 100;
 }
 
+#upload-mutiple-picture {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 100;
+}
+
+
 #picture-input {
   display: none;
 }

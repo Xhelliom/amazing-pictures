@@ -50,6 +50,10 @@ button#sing-in mat-icon {
   margin-right: 20px;
 }
 
+#upload-multiple-picture {
+  margin-right: 20px;
+}
+
 #picture-input {
   display: none;
 }
