@@ -5,17 +5,15 @@
      [class.hovering]="isHovering">
 
 
-     <p>Drag and Drop a File</p>
+     <p>Déposer des fichiers</p>
 
-     <button>
-      <input type="file"
+    <button type="button" mat-raised-button color="primary"(click)="fileInput.click()">Sélectionnez des fichiers</button>
+      <input hidden #fileInput type="file"
       multiple="multiple"
       (change)="selectMultiplePictures($event.target.files)"
       >
-     </button>
-</div>
 
-<h3>Uploads</h3>
+</div>
 
 <div *ngFor="let file of files">
   <app-upload-task [file]="file"></app-upload-task>

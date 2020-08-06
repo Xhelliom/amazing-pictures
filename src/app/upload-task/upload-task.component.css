@@ -1,0 +1,23 @@
+.results {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column; 
+}
+
+.results-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80vw;
+}
+
+.mat-flat-button{
+    margin: 2px;
+}
+
+.result-card{
+    margin: 40px;
+    max-width: 400px;
+
+}
