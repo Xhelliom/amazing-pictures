@@ -10,7 +10,7 @@
   <mat-spinner mode="indeterminate"></mat-spinner> 
 </div>
 <div *ngIf="accountService.user == undefined" id="connect-text">
- <button mat-raised-button color = "primary" >
+ <button mat-raised-button color = "primary" (click)="accountService.openSingInDialog()">
   Connectez-vous pour commencer
  </button>
 </div>
