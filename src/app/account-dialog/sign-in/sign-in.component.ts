@@ -51,8 +51,9 @@ export class SignInComponent implements OnInit {
       await this.accountService.signIn(this.emailForm.value, this.singInForm.controls.password.value);
     }
   }
-  async googleSignIn(): Promise<void> {
-    this.auth.googleSignin();
+  async googleSignIn() {
+    const loggedUser = this.auth.googleSignin();
+    console.log(loggedUser)
     this.dialogRef.close();
   }
   

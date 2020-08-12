@@ -52,6 +52,8 @@ export class AuthService {
       photoURL: user.photoURL
     } 
 
+    console.log(data);
+    console.log(userRef);
     return userRef.set(user.displayName, { merge: true })
 
   }

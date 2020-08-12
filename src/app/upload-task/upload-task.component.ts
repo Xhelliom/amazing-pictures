@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-upload-task',
@@ -21,7 +22,8 @@ export class UploadTaskComponent implements OnInit {
   downloadURL: string;
 
   constructor(
-    private storage: AngularFireStorage, private db: AngularFirestore
+    private storage: AngularFireStorage, private db: AngularFirestore,
+    private accountService: AccountService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,9 @@ export class UploadTaskComponent implements OnInit {
   }
 
   startUpload() {
+
+  //user ID
+  const userId = this.accountService.user.uid;
 
   // picture ID
   const pictureId = /(.*?)-/.exec(uuidv4())[1];
@@ -51,7 +56,7 @@ export class UploadTaskComponent implements OnInit {
     finalize( async() =>  {
       this.downloadURL = await ref.getDownloadURL().toPromise();
 
-      this.db.collection('pictures').doc(pictureId).set( { downloadURL: this.downloadURL, path });
+      this.db.collection('pictures').doc(pictureId).set( { downloadURL: this.downloadURL, path, owner: userId, timestamp: +new Date() });
     }),
   );
 
