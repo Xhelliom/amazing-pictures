@@ -7,7 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PictureDeleteComponent } from './picture-delete/picture-delete.component';
 import Profile from '../../profile/Profile';
 import { ProfileService } from '../../profile/profile.service';
-import { NavigationService } from '../../navigation.service'
+import { NavigationService } from '../../navigation.service';
 
 @Component({
   selector: 'app-picture-view',
@@ -43,7 +43,7 @@ export class PictureViewComponent implements OnInit {
   async refresh(): Promise<void> {
     this.picture = this.browserService.pictures.find(picture => picture.id === this.id);
     if (this.picture) {
-      this.my = this.picture.authorId === this.accountService.user?.uid;
+      this.my = this.picture.authorId === this.accountService.user.uid;
       this.profile = await this.profileService.getProfile(this.picture.authorId);
       this.profilePicUrl = this.profile.profilePictureUrl;
     }

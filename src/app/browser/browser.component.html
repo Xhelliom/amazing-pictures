@@ -10,7 +10,9 @@
   <mat-spinner mode="indeterminate"></mat-spinner> 
 </div>
 <div *ngIf="accountService.user == undefined" id="connect-text">
-  <mat-card>Connectez-vous pour commencer</mat-card>
+ <button mat-raised-button color = "primary" >
+  Connectez-vous pour commencer
+ </button>
 </div>
 
 <app-picture-view *ngIf="pictureId"></app-picture-view>
