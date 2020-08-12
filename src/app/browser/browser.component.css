@@ -34,3 +34,16 @@ mat-spinner {
 #image-shadow.touchScreen {
   visibility: hidden;
 }
+
+mat-card{
+  justify-content: center;
+  margin: 20px;
+}
+
+#connect-text {
+  margin-top: 20vh;
+  display: flex;
+  flex: 1;
+  left: 0;
+  justify-content: center;
+}

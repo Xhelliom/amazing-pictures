@@ -3,6 +3,7 @@ import { BrowserService } from './browser.service';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import Picture from '../pictures/Picture';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-browser',
@@ -27,7 +28,7 @@ export class BrowserComponent implements OnInit {
     }
   }
 
-  constructor(public browserService: BrowserService, route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
+  constructor(public accountService: AccountService, public browserService: BrowserService, route: ActivatedRoute, @Inject(DOCUMENT) private document: Document) {
     route.params.subscribe(params => {
       this.pictureId = params.pictureId;
       if (this.pictureId) {

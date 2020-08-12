@@ -56,5 +56,12 @@ export class SignInComponent implements OnInit {
     console.log(loggedUser)
     this.dialogRef.close();
   }
+
+  async facebookSignIn() {
+    const loggedUser = this.auth.facebookSignin();
+    console.log(loggedUser)
+    this.dialogRef.close();
+  }
+
   
 }
