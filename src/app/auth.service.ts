@@ -76,6 +76,7 @@ export class AuthService {
 
     console.log(data);
     console.log(userRef);
+    location.reload();
     return userRef.set(user.displayName, { merge: true })
 
   }
