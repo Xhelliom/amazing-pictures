@@ -44,7 +44,6 @@ export class AuthService {
   async facebookSignin() {
     const provider = new auth.FacebookAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    console.log(credential);
     return this.updateUserData(credential.user);   
   }
 
@@ -58,6 +57,22 @@ export class AuthService {
       displayName: user.displayName, 
       photoURL: user.photoURL
     } 
+
+    try {
+      const profile = { displayName: user.displayName, pictures: [], recentTags: [] };
+      this.afs.collection('profiles').doc(user.uid).set(profile);
+    } catch (e) {
+      console.error(e);
+
+      let errorMessage: string;
+      if (e.code === 'auth/network-request-failed') {
+        errorMessage = 'Check your internet connection';
+      } else {
+        errorMessage = 'Unknown error happened, please try again later';
+      }
+      return;
+    }
+
 
     console.log(data);
     console.log(userRef);
