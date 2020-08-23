@@ -46,6 +46,10 @@ button#sing-in mat-icon {
   z-index: 100;
 }
 
+#refresh{
+  margin-left: 25px;
+}
+
 #upload-picture {
   margin-right: 20px;
 }
