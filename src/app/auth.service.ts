@@ -38,20 +38,20 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    this.addNewUser(credential.user);
+    await this.addNewUser(credential.user);
     return this.updateUserData(credential.user);
   }
 
   async facebookSignin() {
     const provider = new auth.FacebookAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    this.addNewUser(credential.user);
+    await this.addNewUser(credential.user);
     return this.updateUserData(credential.user);   
   }
 
   private async addNewUser(user) {
     console.log("at add new user");
-    const profile = { displayName: user.displayName, pictures: [], recentTags: ['tata'] };
+    const profile = { displayName: user.displayName, pictures: [], recentTags: [] };
     console.log(profile);
     await this.afs.collection('profiles').doc(user.uid).set(profile);
 
