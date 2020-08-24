@@ -59,8 +59,10 @@ export class AuthService {
     } 
 
     try {
+      const uid = user.uid;
+      console.log(uid);
       const profile = { displayName: user.displayName, pictures: [], recentTags: [] };
-      this.afs.collection('profiles').doc(user.uid).set(profile);
+      this.afs.collection('profiles').doc(uid).set(profile);
     } catch (e) {
       console.error(e);
 
