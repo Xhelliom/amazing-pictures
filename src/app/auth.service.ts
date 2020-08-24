@@ -50,6 +50,8 @@ export class AuthService {
   private updateUserData(user) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    const profile = { displayName: user.displayName, pictures: [], recentTags: [] };
+    this.afs.collection('profiles').doc(user.uid).set(profile);
 
     const data = { 
       uid: user.uid, 
@@ -57,24 +59,6 @@ export class AuthService {
       displayName: user.displayName, 
       photoURL: user.photoURL
     } 
-
-    try {
-      const uid = user.uid;
-      console.log(uid);
-      const profile = { displayName: user.displayName, pictures: [], recentTags: [] };
-      this.afs.collection('profiles').doc(uid).set(profile);
-    } catch (e) {
-      console.error(e);
-
-      let errorMessage: string;
-      if (e.code === 'auth/network-request-failed') {
-        errorMessage = 'Check your internet connection';
-      } else {
-        errorMessage = 'Unknown error happened, please try again later';
-      }
-      return;
-    }
-
 
     console.log(data);
     console.log(userRef);
